@@ -39,4 +39,4 @@ function AuthForm({ setToken }) {
   );
 }
 
-export default AuthForm;m
+export default AuthForm;
