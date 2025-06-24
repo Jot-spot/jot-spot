@@ -4,10 +4,11 @@ import NoteForm from "./NoteForm"
 import NoteList from "./NoteList"
 import AuthForm from "./AuthForm"
 function App() {
+
+
   const [notes, setNotes] = useState([]);
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [search, setSearch] = useState('');
-
 
   useEffect(() => {
     if (token) {
@@ -18,6 +19,15 @@ function App() {
         .then(data => setNotes(data));
     }
   }, [token]);
+
+  function handleAddNote(newNote) {
+    setNotes([newNote, ...notes]);
+  }
+
+  function handleUpdateNote(updatedNote) {
+    const updated = notes.map(n => n.id === updatedNote.id ? updatedNote : n);
+    setNotes(updated);
+  }
   return (
     <div>
 
