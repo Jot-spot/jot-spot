@@ -36,6 +36,13 @@ function App() {
     setNotes([]);
   }
 
+
+  function handleDeleteNote(id) {
+    const updated = notes.filter(n => n.id !== id);
+    setNotes(updated);
+  }
+
+
   const filteredNotes = notes.filter(note =>
     note.title.toLowerCase().includes(search.toLowerCase()) ||
     note.content.toLowerCase().includes(search.toLowerCase()) ||
@@ -60,6 +67,11 @@ function App() {
             placeholder='Search by title,content'
             />
             <NoteForm />
+            <NoteList 
+            token={token}
+            onUpdateNote={handleUpdateNote}
+            onDeleteNote={handleDeleteNote}
+            notes={filteredNotes}/>
           </div>
         )
       }
