@@ -51,7 +51,15 @@ function App() {
         ) : (
           <div>
             <button onClick={handleLogout}>LogOut</button>\
-            <input type="text" name="" id="" value={search} onChange={e => setSearch(e.target.value)} placeholder='Search by title,content'/>
+            <input 
+            type="text" 
+            name="" 
+            id="" 
+            value={search} 
+            onChange={e => setSearch(e.target.value)} 
+            placeholder='Search by title,content'
+            />
+            <NoteForm />
           </div>
         )
       }
