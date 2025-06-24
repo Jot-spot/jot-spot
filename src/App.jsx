@@ -28,6 +28,14 @@ function App() {
     const updated = notes.map(n => n.id === updatedNote.id ? updatedNote : n);
     setNotes(updated);
   }
+
+
+  function handleLogout() {
+    localStorage.removeItem('token');
+    setToken(null);
+    setNotes([]);
+  }
+ 
   return (
     <div>
 
