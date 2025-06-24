@@ -1,22 +1,11 @@
-import React from "react"
-import Login from "./components/Login"
-import Register from "./components/Register"
-import Profile from "./components/Profile"
-import Notes from "./components/Notes"
+import { useState } from 'react'
+import './App.css'
 
 function App() {
-  const isLoggedIn = () => !!localStorage.getItem("token")
+  
+
   return (
     <>
-    <Router>
-      <Routes>
-        <Route />
-        <Route />
-        <Route />
-        <Route />
-        <Route />
-      </Routes>
-    </Router>
     </>
   )
 }
