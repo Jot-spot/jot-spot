@@ -35,7 +35,13 @@ function App() {
     setToken(null);
     setNotes([]);
   }
- 
+
+  const filteredNotes = notes.filter(note =>
+    note.title.toLowerCase().includes(search.toLowerCase()) ||
+    note.content.toLowerCase().includes(search.toLowerCase()) ||
+    (note.tags && note.tags.toLowerCase().includes(search.toLowerCase()))
+  );
+
   return (
     <div>
 
