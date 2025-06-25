@@ -34,7 +34,25 @@ function NoteItem({note,onUpdate,onDelete,token}) {
 
 
   return (
-    <div>NoteItem</div>
+    <div>
+        {isEditing ? (
+        <>
+            <input value={title} onChange={e => setTitle(e.target.value)}/>
+            <textarea value={content} onChange={e => setContent(e.target.value)}/>
+            <input value={tags} onChange={e => setTags(e.target.value)} placeholder='Tags' />
+            <button onClick={handleUpdate}> Save </button>
+        </>
+        ) : (
+            <>
+            <h3>{note.title}</h3>
+            <ReactMarkdown>{note.content}</ReactMarkdown>
+            <p><strong>Tags</strong>{note.tags}</p>
+            <button onClick={()=> setIsEditing(true)}>Edit</button>
+            </>
+        )}
+        <button onClick={handleDelete}>Delete </button>
+
+    </div>
   )
 }
 
