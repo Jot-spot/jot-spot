@@ -8,7 +8,23 @@ function NoteItem({note,onUpdate,onDelete,token}) {
     const[content,setContent]=useState(note.content);
     const[tags,setTags]=useState(note.tags || '');
 
-    
+    function handleUpdate(){
+        fetch(`/notes/${note.id}`,{
+            method: 'PUT',
+            headers:{
+                'Content-Type':'application/json',
+                Authorization:`Bearer ${token}`,
+            },
+            body: JSON.stringify({title,content,tags})
+        })
+        .then(res => res.json())
+        .then(updatedNote => {
+            onUpdate(updatedNote);
+        setIsEditing(false)
+    });
+    }
+
+
   return (
     <div>NoteItem</div>
   )
