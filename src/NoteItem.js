@@ -24,6 +24,14 @@ function NoteItem({note,onUpdate,onDelete,token}) {
     });
     }
 
+    function handleDelete(){
+        fetch (`/notes/${note.id}`,{
+            method: 'DELETE',
+            headers:{Authorization:`Bearer ${token}`}
+        })
+        .then(()=>onDelete(note.id));
+    }
+
 
   return (
     <div>NoteItem</div>
