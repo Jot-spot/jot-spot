@@ -35,3 +35,5 @@ return (
     </form>
 );
 }
+
+export default NoteForm;
