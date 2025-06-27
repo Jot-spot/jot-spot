@@ -27,11 +27,11 @@ function handleSubmit(e) {
 }
 
 return (
-    <form onSubmit={handleSubmit}>
-        <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Title" required />
-        <textarea value={content} onChange={e => setContent(e.target.value)} placeholder="Content" required />
-        <input value={tags} onChange={e => setTags(e.target.value)} placeholder="Tags comma separated)"/>
-        <button type="submit">Add Note</button>
+    <form className="note-form" onSubmit={handleSubmit}>
+        <input  className="note-input" value={title} onChange={e => setTitle(e.target.value)} placeholder="Title" required />
+        <textarea className="note-textarea" value={content} onChange={e => setContent(e.target.value)} placeholder="Content" required />
+        <input className="note-input"  value={tags} onChange={e => setTags(e.target.value)} placeholder="Tags comma separated)"/>
+        <button className="note-button" type="submit">Add Note</button>
     </form>
 );
 }

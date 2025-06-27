@@ -52,15 +52,19 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>My Notes</h1>
+      <h1 className='app-title'>My Notes</h1>
       {
         !token ? (
+          <div className="auth-container">
           <AuthForm setToken={setToken} />
+           </div>
 
         ) : (
-          <div>
-            <button onClick={handleLogout}>LogOut</button>
+          <div className="notes-section">
+          <div className="notes-header">
+            <button className="logout-button" onClick={handleLogout}>LogOut</button>
             <input 
+             className="search-input"
             type="text" 
             name="" 
             id="" 
@@ -68,6 +72,7 @@ function App() {
             onChange={e => setSearch(e.target.value)} 
             placeholder='Search by title,content'
             />
+            </div>
             <NoteForm onAddNote={handleAddNote} token={token} />
 
             <NoteList 

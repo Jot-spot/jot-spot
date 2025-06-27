@@ -27,12 +27,12 @@ function AuthForm({ setToken }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>{isLogin ? 'Login' : 'Register'}</h2>
-      <input value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required />
-      <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
-      <button type="submit">{isLogin ? 'Login' : 'Register'}</button>
-      <p onClick={() => setIsLogin(!isLogin)} style={{ cursor: 'pointer' }}>
+    <form className="auth-form" onSubmit={handleSubmit}>
+      <h2 className="auth-title" >{isLogin ? 'Login' : 'Register'}</h2>
+      <input   className="auth-input" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required />
+      <input className="auth-input" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
+      <button className="auth-button" type="submit">{isLogin ? 'Login' : 'Register'}</button>
+      <p className="auth-toggle" onClick={() => setIsLogin(!isLogin)} style={{ cursor: 'pointer' }}>
         {isLogin ? 'Need to register?' : 'Already have an account?'}
       </p>
     </form>
