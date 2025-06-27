@@ -9,7 +9,7 @@ function NoteItem({note,onUpdate,onDelete,token}) {
     const[tags,setTags]=useState(note.tags || '');
 
     function handleUpdate(){
-        fetch(`/notes/${note.id}`,{
+        fetch(`http://localhost:5000/notes/${note.id}`, {
             method: 'PUT',
             headers:{
                 'Content-Type':'application/json',
@@ -25,7 +25,7 @@ function NoteItem({note,onUpdate,onDelete,token}) {
     }
 
     function handleDelete(){
-        fetch (`/notes/${note.id}`,{
+        fetch(`http://localhost:5000/notes/${note.id}`, {
             method: 'DELETE',
             headers:{Authorization:`Bearer ${token}`}
         })
@@ -46,8 +46,8 @@ function NoteItem({note,onUpdate,onDelete,token}) {
             <>
             <h3>{note.title}</h3>
             <ReactMarkdown>{note.content}</ReactMarkdown>
-            <p><strong>Tags</strong>{note.tags}</p>
-            <button onClick={()=> setIsEditing(true)}>Edit</button>
+            <p><strong>Tags:</strong> {note.tags}</p>
+             <button onClick={()=> setIsEditing(true)}>Edit</button>
             </>
         )}
         <button onClick={handleDelete}>Delete </button>
