@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+const BASE_URL = 'http://localhost:5000';
 function AuthForm({ setToken }) {
   const [isLogin, setIsLogin] = useState(true);
   const [username, setUsername] = useState('');
@@ -7,7 +7,7 @@ function AuthForm({ setToken }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const route = isLogin ? '/login' : '/register';
+    const route = isLogin ? `${BASE_URL}/login` : `${BASE_URL}/register`;
     fetch(route, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

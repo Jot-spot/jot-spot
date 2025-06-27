@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
 import './App.css'
 import NoteForm from "./NoteForm"
 import NoteList from "./NoteList"
@@ -12,7 +13,7 @@ function App() {
 
   useEffect(() => {
     if (token) {
-      fetch('/notes', {
+      fetch('http://localhost:5000/notes', {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(res => res.json())
@@ -54,10 +55,11 @@ function App() {
       <h1>My Notes</h1>
       {
         !token ? (
-          <AuthForm />
+          <AuthForm setToken={setToken} />
+
         ) : (
           <div>
-            <button onClick={handleLogout}>LogOut</button>\
+            <button onClick={handleLogout}>LogOut</button>
             <input 
             type="text" 
             name="" 
@@ -66,7 +68,8 @@ function App() {
             onChange={e => setSearch(e.target.value)} 
             placeholder='Search by title,content'
             />
-            <NoteForm />
+            <NoteForm onAddNote={handleAddNote} token={token} />
+
             <NoteList 
             token={token}
             onUpdateNote={handleUpdateNote}
