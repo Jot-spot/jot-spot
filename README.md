@@ -13,4 +13,10 @@ Fetch Api
 JWT Auth
 CSS for styling
 
+# how to start this project 
+# prerequisites
+   Node.js & npm installed
+   Backend API running (login/register/notes routes  are available)
+
+   
 
