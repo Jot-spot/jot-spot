@@ -18,5 +18,9 @@ CSS for styling
    Node.js & npm installed
    Backend API running (login/register/notes routes  are available)
 
-   
+# installation
+   # install dependencies
+npm install
+# start the development server 
+npm start 
 
