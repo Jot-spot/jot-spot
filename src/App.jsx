@@ -13,11 +13,26 @@ function App() {
 
   useEffect(() => {
     if (token) {
+      console.log("Fetching notes with token:", token);
       fetch('http://localhost:5000/notes', {
         headers: { Authorization: `Bearer ${token}` },
       })
-        .then(res => res.json())
-        .then(data => setNotes(data));
+        .then(res => {
+         console.log("Fetch response:", res.status); 
+        if (!res.ok) {
+          throw new Error("Failed to fetch notes.");
+        }
+        return res.json();
+      })
+        .then(data =>{
+          console.log("Fetched notes:", data); 
+          setNotes(data)})
+        .catch(err => {
+        console.error("Token issue or fetch error:", err.message);
+        localStorage.removeItem("token");
+        setToken(null);
+        setNotes([]);
+      });
     }
   }, [token]);
 

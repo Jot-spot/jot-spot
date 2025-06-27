@@ -45,7 +45,9 @@ function NoteItem({note,onUpdate,onDelete,token}) {
         ) : (
             <>
             <h3 className="note-title" >{note.title}</h3>
-            <ReactMarkdown className="note-content" >{note.content}</ReactMarkdown>
+            <div className="note-content" >
+            <ReactMarkdown  >{note.content}</ReactMarkdown>
+              </div>
             <p className="note-tags" ><strong>Tags:</strong> {note.tags}</p>
              <button className="note-button" onClick={()=> setIsEditing(true)}>Edit</button>
             </>
