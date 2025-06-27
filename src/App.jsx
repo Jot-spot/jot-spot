@@ -13,11 +13,26 @@ function App() {
 
   useEffect(() => {
     if (token) {
+      console.log("Fetching notes with token:", token);
       fetch('http://localhost:5000/notes', {
         headers: { Authorization: `Bearer ${token}` },
       })
-        .then(res => res.json())
-        .then(data => setNotes(data));
+        .then(res => {
+         console.log("Fetch response:", res.status); 
+        if (!res.ok) {
+          throw new Error("Failed to fetch notes.");
+        }
+        return res.json();
+      })
+        .then(data =>{
+          console.log("Fetched notes:", data); 
+          setNotes(data)})
+        .catch(err => {
+        console.error("Token issue or fetch error:", err.message);
+        localStorage.removeItem("token");
+        setToken(null);
+        setNotes([]);
+      });
     }
   }, [token]);
 
@@ -52,15 +67,19 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>My Notes</h1>
+      <h1 className='app-title'>My Notes</h1>
       {
         !token ? (
+          <div className="auth-container">
           <AuthForm setToken={setToken} />
+           </div>
 
         ) : (
-          <div>
-            <button onClick={handleLogout}>LogOut</button>
+          <div className="notes-section">
+          <div className="notes-header">
+            <button className="logout-button" onClick={handleLogout}>LogOut</button>
             <input 
+             className="search-input"
             type="text" 
             name="" 
             id="" 
@@ -68,6 +87,7 @@ function App() {
             onChange={e => setSearch(e.target.value)} 
             placeholder='Search by title,content'
             />
+            </div>
             <NoteForm onAddNote={handleAddNote} token={token} />
 
             <NoteList 
