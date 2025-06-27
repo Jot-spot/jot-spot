@@ -6,5 +6,11 @@ Tags support for organizaion
 Markdown rendering for rich content
 Token persistence using local storage 
 
+# Tech stack 
+React
+React Markdown
+Fetch Api
+JWT Auth
+CSS for styling
 
 
