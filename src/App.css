@@ -177,6 +177,13 @@ input[type="text"] {
   animation: fadeOut 1s ease-out 3s forwards;
 }
 
+.note-actions {
+  display: flex;
+  gap: 12px; /* controls the spacing between Edit and Delete */
+  margin-top: 0.75rem;
+}
+
+
 @keyframes fadeOut {
   to {
     opacity: 0;
@@ -191,6 +198,13 @@ input[type="text"] {
   animation: fadeIn 1.5s ease-in-out forwards;
   opacity: 0;
 }
+
+.note-timestamp {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
 
 @keyframes fadeIn {
   0% {

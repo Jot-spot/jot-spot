@@ -49,11 +49,20 @@ function NoteItem({note,onUpdate,onDelete,token}) {
             <ReactMarkdown  >{note.content}</ReactMarkdown>
               </div>
             <p className="note-tags" ><strong>Tags:</strong> {note.tags}</p>
-             <button className="note-button" onClick={()=> setIsEditing(true)}>Edit</button>
+            <p className="note-timestamp">
+            <strong>Created:</strong> {new Date(note.created_at).toLocaleString()}
+             </p>
+
+
+
+             <div className="note-actions">
+  <button className="note-button" onClick={() => setIsEditing(true)}>Edit</button>
+  <button className="note-button delete-button" onClick={handleDelete}>Delete</button>
+</div>
+
             </>
         )}
-        <button className="note-button delete-button" onClick={handleDelete}>Delete </button>
-
+        
     </div>
   )
 }
