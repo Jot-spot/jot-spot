@@ -67,7 +67,14 @@ function App() {
 
   return (
     <div className='App'>
-      <h1 className='app-title'>My Notes</h1>
+      <div className="logo-container">
+      <h1 className='app-title'>Jot Spot</h1>
+      <img src="/logo.png" alt="Jot Spot Logo" className="app-logo" />
+        <p className="hero-phrase">Your private, secure space to think, feel, and grow — one note at a time.</p>
+         <p className="made-by fade-out">Built by the Jot Spot Team</p>
+         <p className="made-by fade-out">© 2025 Nelson Mandela</p>
+
+      </div>
       {
         !token ? (
           <div className="auth-container">

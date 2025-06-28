@@ -126,6 +126,65 @@ input[type="text"] {
   resize: vertical;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 2.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.app-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover;
+  margin-top: 0.5rem;
+}
+
+.hero-phrase {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  text-align: center;
+  color: #555;
+  max-width: 320px;
+  line-height: 1.4;
+}
+
+
+.made-by {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #888;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-out 3s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+
+
 
 @media (max-width: 600px) {
   .auth-form,
