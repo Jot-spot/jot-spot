@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+
 const BASE_URL = 'http://localhost:5000';
 function AuthForm({ setToken }) {
   const [isLogin, setIsLogin] = useState(true);
@@ -32,7 +35,7 @@ function AuthForm({ setToken }) {
       <h2 className="auth-title" >{isLogin ? 'Login' : 'Register'}</h2>
       <input   className="auth-input" value={username} onChange={e => setUsername(e.target.value)} placeholder="Username" required />
       <input className="auth-input" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required />
-      <button className="auth-button" type="submit">{isLogin ? 'Login' : 'Register'}</button>
+      <button className="auth-button" type="submit" >{isLogin ? (<><FontAwesomeIcon icon={faRightToBracket} /> Login</>) : ('Register')}</button>
       <p className="auth-toggle" onClick={() => setIsLogin(!isLogin)} style={{ cursor: 'pointer' }}>
         {isLogin ? 'Need to register?' : 'Already have an account?'}
       </p>

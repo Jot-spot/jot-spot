@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
 import ReactMarkdown from 'react-markdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
+import  {faPenToSquare} from '@fortawesome/free-solid-svg-icons';
+import  {faTrash} from '@fortawesome/free-solid-svg-icons';
+
+
+
+
 
 
 function NoteItem({note,onUpdate,onDelete,token}) {
@@ -40,7 +48,7 @@ function NoteItem({note,onUpdate,onDelete,token}) {
             <input  className="note-input" value={title} onChange={e => setTitle(e.target.value)}/>
             <textarea className="note-textarea" value={content} onChange={e => setContent(e.target.value)}/>
             <input  className="note-input" value={tags} onChange={e => setTags(e.target.value)} placeholder='Tags' />
-            <button className="note-button" onClick={handleUpdate}> Save </button>
+            <button className="note-button" onClick={handleUpdate}> <FontAwesomeIcon icon={faFileArrowDown} /> Save </button>
         </>
         ) : (
             <>
@@ -56,8 +64,8 @@ function NoteItem({note,onUpdate,onDelete,token}) {
 
 
              <div className="note-actions">
-  <button className="note-button" onClick={() => setIsEditing(true)}>Edit</button>
-  <button className="note-button delete-button" onClick={handleDelete}>Delete</button>
+  <button className="note-button" onClick={() => setIsEditing(true)}><FontAwesomeIcon icon={faPenToSquare} /> Edit</button>
+  <button className="note-button delete-button" onClick={handleDelete}><FontAwesomeIcon icon={faTrash} /> Delete</button>
 </div>
 
             </>

@@ -164,6 +164,7 @@ input[type="text"] {
   animation: fadeOut 1s ease-out 3s forwards;
 }
 
+
 @keyframes fadeOut {
   to {
     opacity: 0;

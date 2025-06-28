@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+
 
 import './App.css'
 import NoteForm from "./NoteForm"
@@ -91,7 +94,7 @@ function App() {
         ) : (
           <div className="notes-section">
           <div className="notes-header">
-            <button className="logout-button" onClick={handleLogout}>LogOut</button>
+            <button className="logout-button" onClick={handleLogout} ><FontAwesomeIcon icon={faRightFromBracket} /> LogOut</button>
             <input 
              className="search-input"
             type="text" 
