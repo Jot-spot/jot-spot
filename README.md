@@ -24,3 +24,10 @@ npm install
 # start the development server 
 npm start 
 
+# API Endpoints Used
+POST /login ---- login user and receive token
+POST /Register ---Register a new user
+GET /notes --- Fetch all notes
+POST /notes ----Create a new note
+PUT /notes/:id ---Update a note 
+DELETE /notes:id ---- Delete a note 
