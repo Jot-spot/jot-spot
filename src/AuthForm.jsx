@@ -17,6 +17,7 @@ function AuthForm({ setToken }) {
       .then(data => {
         if (data.access_token) {
           localStorage.setItem('token', data.access_token);
+          localStorage.setItem('username', data.username);
           setToken(data.access_token);
         } else if (data.message) {
           alert(data.message);

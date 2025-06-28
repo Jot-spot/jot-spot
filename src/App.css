@@ -149,7 +149,7 @@ input[type="text"] {
 .app-logo {
   width: 120px;
   height: 120px;
-  border-radius: 50%; /* makes it circular */
+  border-radius: 50%; 
   object-fit: cover;
   margin-top: 0.5rem;
 }
@@ -180,6 +180,26 @@ input[type="text"] {
 @keyframes fadeOut {
   to {
     opacity: 0;
+  }
+}
+
+.welcome-message {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #4a4a4a;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

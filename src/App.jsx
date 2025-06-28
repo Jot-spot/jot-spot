@@ -11,6 +11,8 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [search, setSearch] = useState('');
 
+  const username = localStorage.getItem('username');
+
   useEffect(() => {
     if (token) {
       console.log("Fetching notes with token:", token);
@@ -73,6 +75,11 @@ function App() {
         <p className="hero-phrase">Your private, secure space to think, feel, and grow — one note at a time.</p>
          <p className="made-by fade-out">Built by the Jot Spot Team</p>
          <p className="made-by fade-out">© 2025 Nelson Mandela</p>
+         {username && (
+    <p className="welcome-message fade-in">
+      Welcome, {username}!
+    </p>
+  )}
 
       </div>
       {
